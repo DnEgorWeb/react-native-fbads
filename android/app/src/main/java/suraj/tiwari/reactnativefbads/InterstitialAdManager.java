@@ -39,10 +39,6 @@ public class InterstitialAdManager extends ReactContextBaseJavaModule implements
 
   @ReactMethod
   public void loadAd(String placementId, Promise p) {
-    if (preloadedPromise != null) {
-      p.reject("E_FAILED_TO_SHOW", "Only one load method can be called at once");
-      return;
-    }
     ReactApplicationContext reactContext = this.getReactApplicationContext();
 
     preloadedPromise = p;
